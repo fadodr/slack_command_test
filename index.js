@@ -15,15 +15,17 @@ try {
     // Acknowledge the command request
 
     // Respond to the command
-    await say({
-      status: true,
-      data: {
-        user: {
-          firstname: 'fado',
-          lastname: 'agboola',
+    await say(
+      JSON.stringify({
+        status: true,
+        data: {
+          user: {
+            firstname: 'fado',
+            lastname: 'agboola',
+          },
         },
-      },
-    });
+      })
+    );
   });
 
   (async () => {
