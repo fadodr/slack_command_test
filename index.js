@@ -9,7 +9,9 @@ const app = new App({
   token: process.env.TOKEN,
 });
 
-app.command('/fado', async ({ command, ack, say }) => {
+    app.command('/fado', async ({ command, ack, say }) => {
+    
+        console.log(`Received a command: ${command.text}`);
   // Acknowledge the command request
   await ack();
 
