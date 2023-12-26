@@ -9,13 +9,12 @@ const app = new App({
   token: process.env.TOKEN,
 });
 
-app.command('/fado-ag', async ({ command, ack, say, context }) => {
+app.command('fado-ag', async ({ command, ack, say, context }) => {
       await ack();
 
       await say('welcome my king');
     //   /* Add functionality here */
 });
-
 
 (async () => {
     // Start the app
