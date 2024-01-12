@@ -15,7 +15,7 @@ try {
 
     if (param == 'no') {
       await say(
-        `We could not find the user ${email} requested by ${command.user_name}. Please, check and try again`
+        `We could not find the user ${email} requested by @${command.user_name}. Please, check and try again`
       );
     } else {
       const user = {
@@ -27,7 +27,7 @@ try {
       const response = `First Name: ${user.firstName}\nLast Name: ${user.lastName}\nEmail: ${user.email}`
 
       await say(
-        `Here’s the profile of user, ${email} requested by ${command.user_name
+        `Here’s the profile of user, ${email} requested by @${command.user_name
         } \n\n ${response}`
       );
     }
