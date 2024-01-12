@@ -11,21 +11,21 @@ try {
   app.command('/fado', async ({ command, ack, say }) => {
     await ack();
 
-    console.log(`Received a command: ${command.text}`);
-    // Acknowledge the command request
+    const param = command.text;
 
-    // Respond to the command
-    await say(
-      JSON.stringify({
-        status: true,
-        data: {
-          user: {
-            firstname: 'fado',
-            lastname: 'agboola',
-          },
-        },
-      })
-    );
+    if (param == 'no') {
+      await say('We could not find this user. Please, check and try again');
+    } else {
+      const user = {
+        firstName: 'fuad',
+        lastName: 'Agboola',
+        email: 'agboola@gmial.com',
+      };
+
+      await say(`User profile : ${JSON.stringify(user)}`);
+    }
+
+    return;
   });
 
   (async () => {
