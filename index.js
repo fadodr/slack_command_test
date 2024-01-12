@@ -11,10 +11,12 @@ try {
   app.command('/fado', async ({ command, ack, say }) => {
     await ack();
 
-    const param = command.text;
+    const [param, email] = command.text.split(',');
 
     if (param == 'no') {
-      await say('We could not find this user. Please, check and try again');
+      await say(
+        `We could not find the user ${email} requested by ${command.user_name}. Please, check and try again`
+      );
     } else {
       const user = {
         firstName: 'fuad',
@@ -22,7 +24,12 @@ try {
         email: 'agboola@gmial.com',
       };
 
-      await say(`User profile : ${JSON.stringify(user)}`);
+      const response = `First Name: ${user.firstName}\nLast Name: ${user.lastName}\nEmail: ${user.email}`
+
+      await say(
+        `Here’s the profile of user, ${email} requested by ${command.user_name
+        } \n\n ${response}`
+      );
     }
 
     return;
