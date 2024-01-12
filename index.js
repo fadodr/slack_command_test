@@ -11,7 +11,7 @@ try {
   app.command('/fado', async ({ command, ack, say }) => {
     await ack();
 
-    const [param, email] = command.text.split(',');
+    const [param, email] = command.text.split(' ');
 
     if (param == 'no') {
       await say(
@@ -28,7 +28,7 @@ try {
 
       await say(
         `Here’s the profile of user, ${email} requested by @${command.user_name
-        } \n\n ${response}`
+        } \n\n${response}`
       );
     }
 
