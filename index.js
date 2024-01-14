@@ -11,7 +11,7 @@ try {
   app.command('/fado', async ({ command, ack, say }) => {
     await ack();
 
-    console.log(await app.client.bots.info());
+    console.log(await app.client.auth.test());
 
     const [param, email] = command.text.split(' ');
 
