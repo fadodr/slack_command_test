@@ -17,7 +17,7 @@ try {
 
     const [param, email] = command.text.split(' ');
 
-    const channelInfo = await web.channels.info({ channel: command.channel_id });
+    const channelInfo = await web.conversations.info({ channel: command.channel_id });
 
     console.log(channelInfo);
 
