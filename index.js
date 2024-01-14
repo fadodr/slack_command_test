@@ -6,7 +6,6 @@ try {
   const app = new App({
     signingSecret: process.env.SECRET,
     token: process.env.TOKEN,
-    l
   });
 
   app.command('/fado', async ({ command, ack, say, payload, client, body }) => {
