@@ -14,7 +14,7 @@ try {
 
     console.log(body);
     console.log(payload);
-    console.log(await client.auth.test90);
+    console.log(await client.auth.test());
     console.log(command);
 
     const [param, email] = command.text.split(' ');
