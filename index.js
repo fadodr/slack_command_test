@@ -8,11 +8,11 @@ try {
     token: process.env.TOKEN,
   });
 
-  app.command('/fado', async ({ command, ack, say, context }) => {
+  app.command('/fado', async ({ command, ack, say }) => {
     await ack();
 
-    console.log(`This is client payoad: ${context.payload}`)
-    console.log(`this this bot info: ${await app.client.auth.test()}`);
+    console.log(await app.client.auth.test());
+    console.log(command);
 
     const [param, email] = command.text.split(' ');
 
