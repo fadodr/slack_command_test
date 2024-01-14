@@ -1,5 +1,7 @@
 const { App } = require('@slack/bolt');
 const dotenv = require('dotenv');
+const { WebClient } = require('@slack/web-api');
+
 dotenv.config();
 
 try {
@@ -8,15 +10,16 @@ try {
     token: process.env.TOKEN,
   });
 
+  const web = new WebClient(process.env.TOKEN);
+
   app.command('/fado', async ({ command, ack, say, payload, client, body }) => {
     await ack();
 
-    console.log(body);
-    console.log(payload);
-    console.log(await client.auth.test());
-    console.log(command);
-
     const [param, email] = command.text.split(' ');
+
+    const channelInfo = await web.channels.info({ channel: channelId });
+
+    console.log(channelInfo);
 
     if (param == 'no') {
       await say(
