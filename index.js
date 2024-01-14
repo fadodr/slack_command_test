@@ -6,12 +6,15 @@ try {
   const app = new App({
     signingSecret: process.env.SECRET,
     token: process.env.TOKEN,
+    l
   });
 
-  app.command('/fado', async ({ command, ack, say }) => {
+  app.command('/fado', async ({ command, ack, say, payload, client, body }) => {
     await ack();
 
-    console.log(await app.client.auth.test());
+    console.log(body);
+    console.log(payload);
+    console.log(await client.auth.test90);
     console.log(command);
 
     const [param, email] = command.text.split(' ');
