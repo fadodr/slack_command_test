@@ -12,12 +12,12 @@ try {
 
   const web = new WebClient(process.env.TOKEN);
 
-  app.command('/fado', async ({ command, ack, say, payload, client, body }) => {
+  app.command('/fado', async ({ command, ack, say }) => {
     await ack();
 
     const [param, email] = command.text.split(' ');
 
-    const channelInfo = await web.channels.info({ channel: channelId });
+    const channelInfo = await web.channels.info({ channel: command.channel_id });
 
     console.log(channelInfo);
 
